@@ -5,10 +5,13 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     box-sizing:border-box;
+    
 }
 
 body{
     background: #1b1b1b;
+    font-family: 'Inter', sans-serif;
+    
 
 }
 button{
@@ -28,13 +31,14 @@ button{
 }
 h2{
     font-weight:lighter;
-    font-size:4rem;
+    font-size:3rem;
 }
 h3{
     color: white;
 }
 h4{
     font-weight: bold;
+    font-size: 2rem;
    
 }
 span{
