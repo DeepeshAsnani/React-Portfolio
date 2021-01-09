@@ -9,16 +9,40 @@ import theracer from "../img/theracer-small.png";
 import goodtimes from "../img/goodtimes-small.png";
 import MovieState from "../movieState";
 
+//motion from framer-motion
+import { motion } from "framer-motion";
+//function from animation
+import {
+  pageAnimation,
+  fade,
+  PhotoAnime,
+  LineAnim,
+  slider,
+} from "../animation";
+
 function OurWork() {
   const Movie = MovieState();
 
   return (
-    <StyleWork>
+    <StyleWork
+      variants={pageAnimation}
+      initial="hidden"
+      animate="show"
+      exit="exit"
+      style={{ background: "#fff" }}
+    >
+      <StyleFrame1 variants={slider}></StyleFrame1>
+      <StyleFrame2 variants={slider}></StyleFrame2>
+      <StyleFrame3 variants={slider}></StyleFrame3>
+      <StyleFrame4 variants={slider}></StyleFrame4>
+
       <StyleMovie>
-        <h2>The Athlete</h2>
-        <div className="line"></div>
+        <motion.h2 variants={fade}>The Athlete</motion.h2>
+        <motion.div variants={LineAnim} className="line"></motion.div>
         <Link to={Movie[0].url}>
-          <img src={athlete} alt="athlete" />
+          <StyleHide>
+            <motion.img variants={PhotoAnime} src={athlete} alt="athlete" />
+          </StyleHide>
         </Link>
       </StyleMovie>
       <StyleMovie>
@@ -39,7 +63,7 @@ function OurWork() {
   );
 }
 
-const StyleWork = styled.div`
+const StyleWork = styled(motion.div)`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem 10rem;
@@ -51,7 +75,7 @@ const StyleMovie = styled.div`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
-    background: #cccccc;
+    background: #23d997;
     margin-bottom: 3rem;
   }
   img {
@@ -60,5 +84,24 @@ const StyleMovie = styled.div`
     object-fit: cover;
   }
 `;
-
+const StyleHide = styled.div`
+  overflow: hidden;
+`;
+const StyleFrame1 = styled(motion.div)`
+  position: fixed;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+`;
+const StyleFrame2 = styled(StyleFrame1)`
+  background: #ff8efb;
+`;
+const StyleFrame3 = styled(StyleFrame1)`
+  background: #8ed2ff;
+`;
+const StyleFrame4 = styled(StyleFrame1)`
+  background: #8effa0;
+`;
 export default OurWork;

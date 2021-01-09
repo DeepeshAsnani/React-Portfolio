@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { StyledAbout } from "../style";
+import Toggle from "./Toggle";
+import { AnimateSharedLayout } from "framer-motion";
 
 function FaqSection() {
   return (
@@ -8,50 +10,44 @@ function FaqSection() {
       <h2>
         Any Questions <span>FAQ</span>
       </h2>
-      {/* Question 1 */}
-      <div className="question">
-        <h4>How Do I Start?</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
-            sunt.
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      {/* Question 2 */}
-      <div className="question">
-        <h4>Daily Schedule</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
-            sunt.
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      {/* Question 3 */}
-      <div className="question">
-        <h4>Different Payment Methods</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
-            sunt.
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
-      {/* Question 4 */}
-      <div className="question">
-        <h4>What Products do you offer.</h4>
-        <div className="answer">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
-            sunt.
-          </p>
-        </div>
-        <div className="faq-line"></div>
-      </div>
+      <AnimateSharedLayout>
+        {/* Question 1 */}
+        <Toggle title="How Do I Start?">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
+              sunt.
+            </p>
+          </div>
+        </Toggle>
+        {/* Question 2 */}
+        <Toggle title="Daily Schedule">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
+              sunt.
+            </p>
+          </div>
+        </Toggle>
+        {/* Question 3 */}
+        <Toggle title="Different Payment Methods">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
+              sunt.
+            </p>
+          </div>
+        </Toggle>
+        {/* Question 4 */}
+        <Toggle title="What Products do you offer.">
+          <div className="answer">
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores,
+              sunt.
+            </p>
+          </div>
+        </Toggle>
+      </AnimateSharedLayout>
     </StyledFaq>
   );
 }

@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import MovieState from "../movieState";
 import styled from "styled-components";
+
+//motion from framer-motion
+import { motion } from "framer-motion";
+//function from animation
+import { pageAnimation } from "../animation";
 function MovieDetails() {
   const history = useHistory();
   const url = history.location.pathname;
@@ -16,7 +21,12 @@ function MovieDetails() {
   return (
     <>
       {movie && (
-        <StyleDetails>
+        <StyleDetails
+          variants={pageAnimation}
+          initial="hidden"
+          animate="show"
+          exit="exit"
+        >
           <StyleHeadline>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="movie" />
@@ -38,7 +48,7 @@ function MovieDetails() {
     </>
   );
 }
-const StyleDetails = styled.div`
+const StyleDetails = styled(motion.div)`
   color: white;
 `;
 const StyleHeadline = styled.div`

@@ -1,36 +1,40 @@
 import React from "react";
 //Import Images
 import home1 from "../img/home1.png";
-//Import Styled Components
-import styled from "styled-components";
+
 //Import Style
 import { StyledAbout, StyleDescription, StyleImage, StyleHide } from "../style";
+import {motion} from "framer-motion";
+import {titleAnim,fade, PhotoAnime} from "../animation";
+import Wave from "./Wave";
+
 function AboutSection() {
   return (
     <StyledAbout>
       <StyleDescription>
-        <div className="title">
+        <motion.div className="title">
           <StyleHide>
-            <h2>We work to make</h2>
+            <motion.h2 variants={titleAnim} >We work to make</motion.h2>
           </StyleHide>
           <StyleHide>
-            <h2>
+            <motion.h2 variants={titleAnim} >
               your <span>dreams</span>
-            </h2>
+            </motion.h2>
           </StyleHide>
           <StyleHide>
-            <h2>come true.</h2>
+            <motion.h2 variants={titleAnim} >come true.</motion.h2>
           </StyleHide>
-        </div>
-        <p>
+        </motion.div>
+        <motion.p variants={fade}>
           Contact Us for any Website or Web App idea. We have professional with
           amazing skilled people to work for your project.
-        </p>
-        <button>Contact Us</button>
+        </motion.p>
+        <motion.button variants={fade}>Contact Us</motion.button>
       </StyleDescription>
       <StyleImage>
-        <img src={home1} alt="guy with a camera" />
+        <motion.img variants={PhotoAnime} src={home1} alt="guy with a camera" />
       </StyleImage>
+      <Wave/>
     </StyledAbout>
   );
 }

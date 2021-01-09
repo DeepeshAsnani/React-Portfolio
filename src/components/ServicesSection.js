@@ -56,7 +56,7 @@ function ServicesSection() {
         />
       </StyleDescription>
       <StyleImage>
-        <img src={home2} alt="camera Image" />
+        <img src={home2} alt="camera" />
       </StyleImage>
     </NewStyledServices>
   );
